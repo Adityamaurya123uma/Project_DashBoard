@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 
 export default function Header() {
 
-  const { currentUser } = useSelector(state => state);
-
+  const { currentUser } = useSelector(state => state.persistedReducer.user);
   return (
     <div className='bg-slate-200'>
         <div className='flex justify-between items-center max-w-6xl max-auto p-3'>
@@ -21,7 +20,7 @@ export default function Header() {
               <Link to="/profile">
                 {
                   currentUser ? (
-                    <image src={currentUser.profilePicture} al  t='profile' 
+                    <img src={currentUser.profilePicture} alt='profile' 
                     className="h-7 w-7 rounded-full object-cover"/>
                   ) : (
                     <li>Sign in</li>
