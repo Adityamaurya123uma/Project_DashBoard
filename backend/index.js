@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRoutes from './routes/UserRoute.js';
 import authRoutes from './routes/AuthRoute.js';
+import cookieParser from 'cookie-parser';
 
 dotenv.config()
 
@@ -14,6 +15,7 @@ mongoose.connect(process.env.MONGO).then(() => {
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 app.listen(3000, () => {
     console.log("Hey there!!!");
