@@ -50,7 +50,7 @@ export default function Profile() {
         <input type="file" ref={fileRef} hidden accept='image/.*' 
         onChange={(e) => setImage(e.target.files[0])}/>
         <img
-          src={currentUser.profilePicture}
+          src={formData.profilePicture || currentUser.currentUser.profilePicture}
           alt='profile'
           className='h-24 w-24 self-center cursor-pointer rounded-full object-cover mt-2'
           onClick={() => fileRef.current.click()}        
@@ -67,14 +67,14 @@ export default function Profile() {
           )}
         </p>
         <input
-          defaultValue={currentUser.username}
+          defaultValue={currentUser.currentUser.username}
           type='text'
           id='username'
           placeholder='Username'
           className='bg-slate-100 rounded-lg p-3'
         />
         <input
-          defaultValue={currentUser.email}
+          defaultValue={currentUser.currentUser.email}
           type='email'
           id='email'
           placeholder='Email'
